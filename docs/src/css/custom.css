@@ -83,3 +83,11 @@
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(59, 130, 246, 0.2);
 }
+
+@media (max-width: 996px) {
+  .navbar-sidebar,
+  .navbar-sidebar__content,
+  .theme-doc-sidebar-container {
+    height: 100vh !important;
+  }
+}
