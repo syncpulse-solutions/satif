@@ -81,7 +81,7 @@ SDIF (Standardized Data Interoperable Format) is the intermediate SQLite-based f
 
 ## Documentation
 
-For detailed documentation, examples, and advanced features, visit [SATIF Documentation](https://satif.io/docs).
+For detailed documentation, examples, and advanced features, visit [SATIF Documentation](https://syncpulse-solutions.github.io/satif/).
 
 ## Contributing
 
