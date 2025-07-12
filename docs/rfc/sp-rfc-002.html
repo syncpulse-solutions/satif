@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-rfc/sp-rfc-002" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">SP-RFC-002: SDIF | SATIF</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://syncpulse-solutions.github.io/satif/img/satif-logo.png"><meta data-rh="true" name="twitter:image" content="https://syncpulse-solutions.github.io/satif/img/satif-logo.png"><meta data-rh="true" property="og:url" content="https://syncpulse-solutions.github.io/satif/docs/rfc/sp-rfc-002"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="SP-RFC-002: SDIF | SATIF"><meta data-rh="true" name="description" content="Standardized Data Interoperable Format (SDIF) Version 1.0"><meta data-rh="true" property="og:description" content="Standardized Data Interoperable Format (SDIF) Version 1.0"><link data-rh="true" rel="icon" href="/satif/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://syncpulse-solutions.github.io/satif/docs/rfc/sp-rfc-002"><link data-rh="true" rel="alternate" href="https://syncpulse-solutions.github.io/satif/docs/rfc/sp-rfc-002" hreflang="en"><link data-rh="true" rel="alternate" href="https://syncpulse-solutions.github.io/satif/docs/rfc/sp-rfc-002" hreflang="x-default"><link rel="stylesheet" href="/satif/assets/css/styles.40373ca7.css">
+<script src="/satif/assets/js/runtime~main.c78ee2ab.js" defer="defer"></script>
+<script src="/satif/assets/js/main.77083c92.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/satif/img/satif-logo.png"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/satif/"><div class="navbar__logo"><img src="/satif/img/satif-logo.png" alt="SATIF Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/satif/img/satif-logo.png" alt="SATIF Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">SATIF</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/satif/docs/overview">Docs</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/syncpulse-solutions/satif" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/satif/docs/overview">Overview</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/satif/docs/core-concepts">Core Concepts</a><button aria-label="Collapse sidebar category &#x27;Core Concepts&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/satif/docs/concepts/sdif">SDIF</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/satif/docs/concepts/standardization">Standardization</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/satif/docs/concepts/transformation">Transformation</a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/satif/docs/quickstart">Quickstart</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/satif/docs/use-cases">Use Cases</a><button aria-label="Collapse sidebar category &#x27;Use Cases&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/satif/docs/use_cases/build_a_transformation_pipeline">Building a transformation pipeline</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/satif/docs/use_cases/chatting_with_your_files">Chatting with your files</a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/satif/docs/terminology">Terminology</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 sidebar-separator"><hr style="margin: 0.5rem 0; background-color: var(--ifm-color-emphasis-300);"></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/satif/docs/standardizers">Standardizers</a><button aria-label="Expand sidebar category &#x27;Standardizers&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/satif/docs/transformers">Transformers</a><button aria-label="Expand sidebar category &#x27;Transformers&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/satif/docs/transformation-builders">Transformation Builders</a><button aria-label="Expand sidebar category &#x27;Transformation Builders&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/satif/docs/adapters">Adapters</a><button aria-label="Expand sidebar category &#x27;Adapters&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/satif/docs/sdif_database">SDIF Database</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/satif/docs/comparators">Comparators</a><button aria-label="Expand sidebar category &#x27;Comparators&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/satif/docs/representers">Representers</a><button aria-label="Expand sidebar category &#x27;Representers&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/satif/docs/code-executors">Code Executors</a><button aria-label="Expand sidebar category &#x27;Code Executors&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 sidebar-separator"><hr style="margin: 0.5rem 0; background-color: var(--ifm-color-emphasis-300);"></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/satif/docs/api-reference">API Reference</a><button aria-label="Expand sidebar category &#x27;API Reference&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 sidebar-separator"><hr style="margin: 0.5rem 0; background-color: var(--ifm-color-emphasis-300);"></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/satif/docs/rfc">RFC</a><button aria-label="Collapse sidebar category &#x27;RFC&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/satif/docs/rfc/sp-rfc-002">SP-RFC-002: SDIF</a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/satif/docs/libs">Libs</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/satif/docs/roadmap">Roadmap</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/satif/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/satif/docs/rfc"><span itemprop="name">RFC</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">SP-RFC-002: SDIF</span><meta itemprop="position" content="2"></li></ul></nav><div class="theme-doc-markdown markdown"><header><h1>SP-RFC-002: SDIF</h1></header>
+<p><strong>Standardized Data Interoperable Format (SDIF) Version 1.0</strong></p>
+<p><strong>1. Summary</strong></p>
+<p>SDIF is a standardized format using a single SQLite database file to represent heterogeneous data sources — including tabular data, JSON objects, and binary media files — as well as their structural metadata, semantic descriptions, and interrelationships. It aims to provide a structured and directly queryable input format for automated data processing systems, particularly AI agents involved in data analysis and transformation tasks.</p>
+<p><strong>2. Motivation</strong></p>
+<p>Organizations constantly handle data from diverse sources and varied formats (flat files like CSV, Excel spreadsheets, structured documents like JSON or XML, PDF, database exports, etc.). This intrinsic heterogeneity is a major obstacle to automating processing and integration workflows, particularly for AI systems that greatly benefit from a predictable, semantically rich, and easily queryable input representation. SDIF addresses this need by proposing a standardized intermediate format, encapsulated in a single SQLite database, that simplifies ingestion, structured analysis via SQL, and subsequent transformation of data by downstream systems.</p>
+<p><strong>3. Objectives</strong></p>
+<p>The main objectives of the SDIF version 1.0 specification are to:</p>
+<ul>
+<li>Use a single SQLite database file as a standard container.</li>
+<li>Define a specific and mandatory database schema within the SQLite file to fully store the data source and associated metadata.</li>
+<li>Leverage SQLite&#x27;s native features to the maximum: data types (INTEGER, REAL, TEXT, BLOB), constraints (PRIMARY KEY, FOREIGN KEY, NOT NULL), and SQL querying capabilities.</li>
+<li>Clearly specify how tabular data, JSON objects, and media files are stored in dedicated tables.</li>
+<li>Include comprehensive metadata describing the data itself as well as its original source(s).</li>
+<li>Provide a clear mechanism to represent relationships between data, strongly favoring the use of SQLite&#x27;s native foreign key (FOREIGN KEY) constraints when applicable.</li>
+<li>Establish a robust and extensible foundation for future versions or specializations.</li>
+</ul>
+<p><strong>4. Compliance</strong></p>
+<p>The keywords &quot;MUST&quot;, &quot;MUST NOT&quot;, &quot;REQUIRED&quot;, &quot;SHALL&quot;, &quot;SHALL NOT&quot;, &quot;SHOULD&quot;, &quot;SHOULD NOT&quot;, &quot;RECOMMENDED&quot;, &quot;MAY&quot;, and &quot;OPTIONAL&quot; in this document are to be interpreted as described in BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all capitals. These keywords indicate the levels of requirement for implementations conforming to the SDIF Version 1.0 specification.</p>
+<p><strong>5. SDIF Format Specification</strong></p>
+<p>5.1. An SDIF file <strong>MUST</strong> be a valid SQLite database file, compatible with SQLite version 3 [SQLITE_FORMAT].</p>
+<p>5.2. The recommended file extension for an SDIF file <strong>SHOULD</strong> be <code>.sdif</code>. An alternative extension <code>.sqlite</code> <strong>MAY</strong> be used to facilitate recognition by operating systems or standard SQLite tools.</p>
+<p>5.3. Text Encoding: SQLite handles the internal encoding of the database. However, all textual data stored in TEXT type columns (including JSON strings and descriptions) <strong>MUST</strong> be encoded in UTF-8 [RFC3629] when inserted and interpreted as such when read.</p>
+<p>5.4. Naming: The table and column names defined in this schema (Section 6) <strong>MUST</strong> be used exactly as specified (in <code>snake_case</code>). The names of tables containing actual user data (see Section 7.1) <strong>SHOULD</strong> also use <code>snake_case</code> and <strong>MUST NOT</strong> start with the <code>sdif_</code> prefix to avoid conflicts with metadata tables.</p>
+<p><strong>6. SDIF Database Schema</strong></p>
+<p>A valid SDIF file <strong>MUST</strong> contain at minimum the following metadata tables. Other tables containing user data will also be present (see Section 7).</p>
+<p><strong>6.1. Table <code>sdif_properties</code></strong></p>
+<p>This table contains global properties about the SDIF file itself. It <strong>MUST</strong> contain exactly one row.</p>
+<ul>
+<li><code>sdif_version</code> (TEXT, NOT NULL): The version of the SDIF specification to which this file conforms. For this specification, the value <strong>MUST</strong> be <code>&quot;1.0&quot;</code>.</li>
+<li><code>creation_timestamp</code> (TEXT): The date and time of creation of the SDIF file, in ISO 8601 [ISO8601] format (e.g., <code>&quot;2024-07-31T10:00:00Z&quot;</code>). <strong>RECOMMENDED</strong>.</li>
+</ul>
+<p><strong>6.2. Table <code>sdif_sources</code></strong></p>
+<p>This table describes the original source(s) of the data before integration into the SDIF file. Each distinct source (e.g., an Excel file, a CSV file, a database export) <strong>SHOULD</strong> have an entry in this table.</p>
+<ul>
+<li><code>source_id</code> (INTEGER, PRIMARY KEY AUTOINCREMENT): A unique identifier for each source.</li>
+<li><code>original_file_name</code> (TEXT, NOT NULL): The name of the original file or source.</li>
+<li><code>original_file_type</code> (TEXT, NOT NULL): The type of the original file or source (e.g., &quot;csv&quot;, &quot;xlsx&quot;, &quot;json&quot;, &quot;xml&quot;, &quot;pdf&quot;, &quot;database_export&quot;).</li>
+<li><code>source_description</code> (TEXT): A free-form textual description of the source. <strong>RECOMMENDED</strong>.</li>
+<li><code>processing_timestamp</code> (TEXT): The date and time at which this specific source was processed and integrated into the SDIF file, in ISO 8601 format. <strong>OPTIONAL</strong>.</li>
+</ul>
+<p><strong>6.3. Table <code>sdif_tables_metadata</code></strong></p>
+<p>This table stores metadata associated with each table containing user tabular data (see Section 7.1).</p>
+<ul>
+<li><code>table_name</code> (TEXT, PRIMARY KEY): The name of the SQL table in the SDIF database containing user data (e.g., <code>&quot;delivery_details&quot;</code>). This name <strong>MUST NOT</strong> start with <code>sdif_</code>.</li>
+<li><code>source_id</code> (INTEGER, NOT NULL): Reference to the original source of the data in this table.
+<ul>
+<li>FOREIGN KEY (<code>source_id</code>) REFERENCES <code>sdif_sources</code>(<code>source_id</code>)</li>
+</ul>
+</li>
+<li><code>description</code> (TEXT): A semantic description of what the table represents. <strong>RECOMMENDED</strong>.</li>
+<li><code>original_identifier</code> (TEXT): An identifier of the original structure if relevant (e.g., sheet name in an Excel file). <strong>OPTIONAL</strong>.</li>
+<li><code>row_count</code> (INTEGER): The number of rows in the user data table. Can be calculated (<code>SELECT COUNT(*)</code>) but can be stored for quick access. <strong>OPTIONAL</strong>.</li>
+</ul>
+<p><strong>6.4. Table <code>sdif_columns_metadata</code></strong></p>
+<p>This table stores metadata associated with each column of the user data tables.</p>
+<ul>
+<li><code>table_name</code> (TEXT, NOT NULL): The name of the user table containing the column.</li>
+<li><code>column_name</code> (TEXT, NOT NULL): The name of the column in the user table.</li>
+<li><code>description</code> (TEXT): A semantic description of what the column represents. <strong>RECOMMENDED</strong>.</li>
+<li><code>original_column_name</code> (TEXT): The original name of the column as it appeared in the data source. <strong>OPTIONAL</strong>.</li>
+<li>PRIMARY KEY (<code>table_name</code>, <code>column_name</code>)</li>
+<li>FOREIGN KEY (<code>table_name</code>) REFERENCES <code>sdif_tables_metadata</code>(<code>table_name</code>) ON DELETE CASCADE</li>
+</ul>
+<p><em>Note:</em> Basic structural information such as SQLite data type (INTEGER, REAL, TEXT, BLOB) and nullability (NOT NULL constraint) are defined directly in the <code>CREATE TABLE</code> statement of the user table itself and are not duplicated here.</p>
+<p><strong>6.5. Table <code>sdif_objects</code></strong></p>
+<p>This table stores non-tabular data represented as JSON objects.</p>
+<ul>
+<li><code>object_name</code> (TEXT, PRIMARY KEY): A unique logical name identifying this object within the SDIF file.</li>
+<li><code>source_id</code> (INTEGER, NOT NULL): Reference to the original source of this object.
+<ul>
+<li>FOREIGN KEY (<code>source_id</code>) REFERENCES <code>sdif_sources</code>(<code>source_id</code>)</li>
+</ul>
+</li>
+<li><code>json_data</code> (TEXT, NOT NULL): The complete representation of the object as a valid JSON string [RFC8259]. SQLite&#x27;s JSON functions [SQLITE_JSON] can be used to query this content.</li>
+<li><code>description</code> (TEXT): A semantic description of what the JSON object represents. <strong>RECOMMENDED</strong>.</li>
+<li><code>schema_hint</code> (TEXT): A JSON schema [JSON-Schema] describing the expected structure of <code>json_data</code>, stored as a JSON string. <strong>RECOMMENDED</strong>.</li>
+</ul>
+<p><strong>6.6. Table <code>sdif_media</code></strong></p>
+<p>This table stores media files or other binary data.</p>
+<ul>
+<li><code>media_name</code> (TEXT, PRIMARY KEY): A unique logical name identifying this media resource.</li>
+<li><code>source_id</code> (INTEGER, NOT NULL): Reference to the original source of this media.
+<ul>
+<li>FOREIGN KEY (<code>source_id</code>) REFERENCES <code>sdif_sources</code>(<code>source_id</code>)</li>
+</ul>
+</li>
+<li><code>media_type</code> (TEXT, NOT NULL): The general type of the media. <strong>RECOMMENDED</strong> values for v1.0 include: <code>&quot;image&quot;</code>, <code>&quot;audio&quot;</code>, <code>&quot;video&quot;</code>, <code>&quot;binary&quot;</code>.</li>
+<li><code>media_data</code> (BLOB, NOT NULL): The raw binary content of the media file.</li>
+<li><code>description</code> (TEXT): A semantic description of what the media represents. <strong>RECOMMENDED</strong>.</li>
+<li><code>original_format</code> (TEXT): The specific format of the original file (e.g., &quot;png&quot;, &quot;jpeg&quot;, &quot;mp3&quot;, &quot;wav&quot;, &quot;pdf&quot;). <strong>RECOMMENDED</strong>.</li>
+<li><code>technical_metadata</code> (TEXT): Technical metadata extracted or known about the media, stored as a JSON string (e.g., <code>{&quot;width&quot;: 300, &quot;height&quot;: 150}</code> for an image, <code>{&quot;duration_seconds&quot;: 125}</code> for audio). <strong>OPTIONAL</strong>.</li>
+</ul>
+<p><strong>6.7. Table <code>sdif_semantic_links</code></strong></p>
+<p>This table is <strong>OPTIONAL</strong> and serves to define logical or semantic relationships between different elements in the SDIF file that cannot be represented by native SQLite FOREIGN KEY constraints (see Section 8).</p>
+<ul>
+<li><code>link_id</code> (INTEGER, PRIMARY KEY AUTOINCREMENT): A unique identifier for this semantic link.</li>
+<li><code>link_type</code> (TEXT, NOT NULL): The type of the relationship. <strong>RECOMMENDED</strong> values include: <code>&quot;annotation&quot;</code> (links descriptive information to an element), <code>&quot;reference&quot;</code> (generic link), <code>&quot;logical_foreign_key&quot;</code> (e.g., to link a value in a JSON to a table column). Other types can be used but should be documented by the application.</li>
+<li><code>description</code> (TEXT): A textual description of the relationship. <strong>RECOMMENDED</strong>.</li>
+<li><code>from_element_type</code> (TEXT, NOT NULL): The type of the source element. Possible values: <code>&quot;table&quot;</code>, <code>&quot;column&quot;</code>, <code>&quot;object&quot;</code>, <code>&quot;media&quot;</code>, <code>&quot;json_path&quot;</code>.</li>
+<li><code>from_element_spec</code> (TEXT, NOT NULL): A JSON string specifying the exact source element (e.g., <code>{&quot;table_name&quot;: &quot;deliveries&quot;, &quot;column_name&quot;: &quot;delivery_id&quot;}</code>, <code>{&quot;object_name&quot;: &quot;notes&quot;, &quot;path&quot;: &quot;$.[*].delivery_ref&quot;}</code>).</li>
+<li><code>to_element_type</code> (TEXT, NOT NULL): The type of the target element. Same possible values as <code>from_element_type</code>.</li>
+<li><code>to_element_spec</code> (TEXT, NOT NULL): A JSON string specifying the exact target element.</li>
+</ul>
+<p><strong>6.8. Table <code>sdif_annotations</code> (OPTIONAL)</strong></p>
+<p>This <strong>OPTIONAL</strong> table provides a centralized mechanism for attaching arbitrary metadata, defined by the user or the generation process, to various elements within the SDIF file.</p>
+<ul>
+<li><code>annotation_id</code> (INTEGER, PRIMARY KEY AUTOINCREMENT): A unique identifier for each annotation record.</li>
+<li><code>target_element_type</code> (TEXT, NOT NULL): Specifies the type of SDIF element to which this annotation is attached. Values <strong>MUST</strong> be one of the following:
+<ul>
+<li><code>&quot;file&quot;</code>: The annotation applies to the SDIF file as a whole.</li>
+<li><code>&quot;source&quot;</code>: The annotation applies to a specific entry in <code>sdif_sources</code>.</li>
+<li><code>&quot;table&quot;</code>: The annotation applies to a specific user data table (referenced in <code>sdif_tables_metadata</code>).</li>
+<li><code>&quot;column&quot;</code>: The annotation applies to a specific column of a user data table (referenced in <code>sdif_columns_metadata</code>).</li>
+<li><code>&quot;object&quot;</code>: The annotation applies to a specific JSON object in <code>sdif_objects</code>.</li>
+<li><code>&quot;media&quot;</code>: The annotation applies to a specific media resource in <code>sdif_media</code>.</li>
+</ul>
+</li>
+<li><code>target_element_spec</code> (TEXT, NOT NULL): A valid JSON string [RFC8259] that precisely identifies the target element specified by <code>target_element_type</code>. The structure of this JSON depends on <code>target_element_type</code>:
+<ul>
+<li>If <code>target_element_type</code> is <code>&quot;file&quot;</code>: The JSON <strong>SHOULD</strong> be an empty object <code>{}</code> since there is only one file.</li>
+<li>If <code>target_element_type</code> is <code>&quot;source&quot;</code>: The JSON <strong>MUST</strong> contain the key <code>&quot;source_id&quot;</code> with the corresponding ID in <code>sdif_sources</code>. E.g.: <code>{&quot;source_id&quot;: 1}</code>.</li>
+<li>If <code>target_element_type</code> is <code>&quot;table&quot;</code>: The JSON <strong>MUST</strong> contain the key <code>&quot;table_name&quot;</code> with the name of the user table. E.g.: <code>{&quot;table_name&quot;: &quot;delivery_details&quot;}</code>.</li>
+<li>If <code>target_element_type</code> is <code>&quot;column&quot;</code>: The JSON <strong>MUST</strong> contain the keys <code>&quot;table_name&quot;</code> and <code>&quot;column_name&quot;</code>. E.g.: <code>{&quot;table_name&quot;: &quot;delivery_details&quot;, &quot;column_name&quot;: &quot;date_time&quot;}</code>.</li>
+<li>If <code>target_element_type</code> is <code>&quot;object&quot;</code>: The JSON <strong>MUST</strong> contain the key <code>&quot;object_name&quot;</code>. E.g.: <code>{&quot;object_name&quot;: &quot;additional_notes&quot;}</code>.</li>
+<li>If <code>target_element_type</code> is <code>&quot;media&quot;</code>: The JSON <strong>MUST</strong> contain the key <code>&quot;media_name&quot;</code>. E.g.: <code>{&quot;media_name&quot;: &quot;company_logo&quot;}</code>.</li>
+</ul>
+</li>
+<li><code>annotation_content</code> (TEXT, NOT NULL): The content of the annotation itself, stored as a valid JSON string [RFC8259]. The internal structure of this JSON object is entirely defined by the user or application generating the annotation and is not constrained by the SDIF specification.</li>
+</ul>
+<p><strong>7. User Data Storage</strong></p>
+<p><strong>7.1. Tabular Data</strong></p>
+<ul>
+<li>Each set of tabular data from a source (e.g., an Excel sheet, a CSV file) <strong>SHOULD</strong> be stored in its own SQL table within the SDIF file.</li>
+<li>The name of these tables <strong>MUST NOT</strong> start with <code>sdif_</code>.</li>
+<li>The definition of these tables (<code>CREATE TABLE</code>) <strong>MUST</strong> use appropriate SQLite data types (INTEGER, REAL, TEXT, BLOB) and <strong>SHOULD</strong> include relevant constraints (PRIMARY KEY, NOT NULL).</li>
+<li>Each user data table <strong>MUST</strong> have a corresponding entry in <code>sdif_tables_metadata</code>, and each column of these tables <strong>MUST</strong> have a corresponding entry in <code>sdif_columns_metadata</code>.</li>
+</ul>
+<p><strong>7.2. Object Data (JSON)</strong></p>
+<ul>
+<li>Structured non-tabular data (from native JSON, converted XML, etc.) <strong>MUST</strong> be stored as valid JSON strings in the <code>json_data</code> column of the <code>sdif_objects</code> table.</li>
+<li>Each logical JSON object <strong>MUST</strong> have a unique entry in <code>sdif_objects</code>, identified by <code>object_name</code>.</li>
+</ul>
+<p><strong>7.3. Media and Binary Data</strong></p>
+<ul>
+<li>Media files or other relevant binary data <strong>MUST</strong> be stored as BLOBs in the <code>media_data</code> column of the <code>sdif_media</code> table.</li>
+<li>Each logical media file <strong>MUST</strong> have a unique entry in <code>sdif_media</code>, identified by <code>media_name</code>.</li>
+</ul>
+<p><strong>8. Relationships Between Data</strong></p>
+<p>8.1. <strong>Primary Keys:</strong> Primary keys for user data tables <strong>MUST</strong> be defined using the standard SQL <code>PRIMARY KEY</code> syntax when creating the table.</p>
+<p>8.2. <strong>Foreign Keys Between Tables:</strong> When relationships exist between different user data tables, they <strong>MUST</strong> be implemented using SQLite&#x27;s native <code>FOREIGN KEY</code> constraints. This is the <strong>REQUIRED</strong> method for representing relational links between tables.</p>
+<p>8.3. <strong>Other Semantic Links:</strong> For relationships that cannot be modeled by native foreign keys (e.g., linking a value extracted from JSON via JSONPath to a table column, annotating a table with a descriptive JSON object, linking a media to a specific table), the <code>sdif_semantic_links</code> table (Section 6.7) <strong>MAY</strong> be used. Its use <strong>SHOULD</strong> be reserved for cases where <code>FOREIGN KEY</code> is not applicable.</p>
+<p><strong>9. Future Considerations</strong></p>
+<p>Version 1.0 of SDIF mandates the use of SQLite as the file format and underlying database engine. Future versions of this specification <strong>MAY</strong> consider defining equivalent schemas for other file-oriented database engines (such as DuckDB [DUCKDB]), if clear use cases and significant advantages (e.g., analytical performance) justify it. However, ensuring compatibility or conversion between different database file formats represents a significant challenge that is not addressed in this version.</p>
+<p><strong>Appendix A. Example Schema and Data (Non-Normative)</strong></p>
+<p><em>This appendix illustrates the structure of a simple SDIF file.</em></p>
+<p><strong>A.1. Data Sources</strong></p>
+<p>Suppose the data comes from two files:</p>
+<ol>
+<li><code>deliveries_oct2024.xlsx</code> (containing a &quot;Details&quot; sheet)</li>
+<li><code>operator_notes.json</code></li>
+</ol>
+<p><strong>A.2. SDIF Metadata Tables Content</strong></p>
+<ul>
+<li>
+<p><strong><code>sdif_properties</code></strong> (1 row)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>sdif_version</th><th>creation_timestamp</th></tr></thead><tbody><tr><td>&quot;1.0&quot;</td><td>&quot;2024-11-15T14:30:00Z&quot;</td></tr></tbody></table>
+</li>
+<li>
+<p><strong><code>sdif_sources</code></strong> (2 rows)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>source_id</th><th>original_file_name</th><th>original_file_type</th><th>source_description</th><th>processing_timestamp</th></tr></thead><tbody><tr><td>1</td><td>deliveries_oct2024.xlsx</td><td>xlsx</td><td>Monthly deliveries file</td><td>&quot;2024-11-15T14:25:10Z&quot;</td></tr><tr><td>2</td><td>operator_notes.json</td><td>json</td><td>Additional notes from operators</td><td>&quot;2024-11-15T14:25:15Z&quot;</td></tr></tbody></table>
+</li>
+<li>
+<p><strong><code>sdif_tables_metadata</code></strong> (1 row)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>table_name</th><th>source_id</th><th>description</th><th>original_identifier</th><th>row_count</th></tr></thead><tbody><tr><td><code>delivery_details</code></td><td>1</td><td>Detail of each delivery.</td><td>Details</td><td>850</td></tr></tbody></table>
+</li>
+<li>
+<p><strong><code>sdif_columns_metadata</code></strong> (Example for 2 columns)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>table_name</th><th>column_name</th><th>description</th><th>original_column_name</th></tr></thead><tbody><tr><td><code>delivery_details</code></td><td><code>delivery_id</code></td><td>Unique delivery identifier.</td><td>NULL</td></tr><tr><td><code>delivery_details</code></td><td><code>date_time</code></td><td>Date/time of delivery completion.</td><td>&quot;DD/MM/YYYY HH:MM&quot;</td></tr><tr><td>...</td><td>...</td><td>...</td><td>...</td></tr></tbody></table>
+</li>
+<li>
+<p><strong><code>delivery_details</code></strong> (5 rows)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>delivery_id</th><th>customer_num</th><th>date_time</th><th>product</th><th>quantity_l</th><th>amount_eur</th></tr></thead><tbody><tr><td>DEL-001</td><td>CUST-101</td><td>2024-10-15T10:30:00Z</td><td>Diesel</td><td>1500.5</td><td>2250.75</td></tr><tr><td>DEL-002</td><td>CUST-203</td><td>2024-10-15T11:45:10Z</td><td>Heating Oil</td><td>800.0</td><td>1120.00</td></tr><tr><td>DEL-003</td><td>CUST-101</td><td>2024-10-16T09:15:00Z</td><td>Diesel</td><td>200.75</td><td>301.13</td></tr><tr><td>DEL-004</td><td>CUST-502</td><td>2024-10-16T14:00:00Z</td><td>AdBlue</td><td>50.0</td><td>45.00</td></tr><tr><td>DEL-005</td><td>CUST-203</td><td>2024-10-17T08:50:00Z</td><td>Diesel</td><td>1200.0</td><td>1800.00</td></tr></tbody></table>
+</li>
+<li>
+<p><strong><code>sdif_objects</code></strong> (1 row)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>object_name</th><th>source_id</th><th>json_data</th><th>description</th><th>schema_hint (JSON Schema as text)</th></tr></thead><tbody><tr><td><code>additional_notes</code></td><td>2</td><td><code>[{&quot;delivery_ref&quot;: &quot;DEL-001&quot;, &quot;note&quot;: &quot;Customer absent&quot;}, {&quot;delivery_ref&quot;: &quot;DEL-003&quot;, ...}]</code></td><td>Specific notes per delivery.</td><td><code>{&quot;type&quot;: &quot;array&quot;, &quot;items&quot;: {...}}</code></td></tr></tbody></table>
+</li>
+<li>
+<p><strong><code>sdif_media</code></strong> (0 rows in this simple example)</p>
+</li>
+<li>
+<p><strong><code>sdif_semantic_links</code></strong> (1 row to link JSON to table)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>link_id</th><th>link_type</th><th>description</th><th>from_element_type</th><th>from_element_spec</th><th>to_element_type</th><th>to_element_spec</th></tr></thead><tbody><tr><td>1</td><td><code>logical_foreign_key</code></td><td>Links delivery ref. in notes to ID.</td><td><code>json_path</code></td><td><code>{&quot;object_name&quot;: &quot;additional_notes&quot;, &quot;path&quot;: &quot;$.[*].delivery_ref&quot;}</code></td><td><code>column</code></td><td><code>{&quot;table_name&quot;: &quot;delivery_details&quot;, &quot;column_name&quot;: &quot;delivery_id&quot;}</code></td></tr></tbody></table>
+</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/syncpulse-solutions/satif/tree/main/docs/docs/rfc/sp-rfc-002.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/satif/docs/rfc"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">RFC</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/satif/docs/libs"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Libs</div></a></nav></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Documentation</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/satif/docs/overview">Getting Started</a></li><li class="footer__item"><a class="footer__link-item" href="/satif/docs/quickstart">Quickstart</a></li><li class="footer__item"><a class="footer__link-item" href="/satif/docs/concepts/sdif">Core Concepts</a></li></ul></div><div class="col footer__col"><div class="footer__title">Resources</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/satif/docs/api_reference">API Reference</a></li><li class="footer__item"><a class="footer__link-item" href="/satif/docs/standardizers">Standardizers</a></li><li class="footer__item"><a class="footer__link-item" href="/satif/docs/transformers">Transformers</a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/syncpulse-solutions/satif" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://github.com/syncpulse-solutions/satif/issues" target="_blank" rel="noopener noreferrer" class="footer__link-item">Issues<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://github.com/syncpulse-solutions/satif/discussions" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discussions<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://syncpulse.fr" target="_blank" rel="noopener noreferrer" class="footer__link-item">Syncpulse.fr<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Syncpulse. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
