@@ -5,6 +5,10 @@
 
 AI-powered toolkit for transforming any input files into any output files with minimal code.
 
+## ⚠️ Disclaimer
+
+**EXPERIMENTAL STATUS**: This project is in early development and not production-ready. The API may change significantly between versions.
+
 ## Installation
 
 ```bash
