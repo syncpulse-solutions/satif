@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "satif-workspace"
+version = "0.1.0"
+description = "Workspace definition for satif project"
+authors = ["Bryan Djafer <bryan.djafer@syncpulse.fr>"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+satif-core = {path = "libs/core"}
+satif-sdk = {path = "libs/sdk"}
+satif-ai = {path = "libs/ai"}
+sdif-db = {path = "libs/sdif"}
+sdif-mcp = {path = "libs/mcp"}
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+tabulate = "^0.9.0"
+ipykernel = "^6.29.5"
+plotly = "^6.0.1"
+pillow = "^11.3.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.uv.workspace]
+members = [
+    "libs/core",
+    "libs/sdk",
+    "libs/ai",
+    "libs/sdif",
+    "libs/mcp"
+]

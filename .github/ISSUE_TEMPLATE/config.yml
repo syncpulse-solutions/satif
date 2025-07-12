@@ -1,0 +1,11 @@
+# .github/ISSUE_TEMPLATE/config.yml
+
+blank_issues_enabled: false
+contact_links:
+  - name: ❓ Ask a Question / Get Help
+    url: https://github.com/syncpulse-solutions/satif/discussions/new?category=q-a # Link to your GitHub Discussions Q&A category
+    about: Please ask and answer usage questions here. Avoid opening issues for general help.
+
+  - name: 📚 Read the Documentation
+    url: https://syncpulse-solutions.github.io/satif/ # Link to your main documentation site
+    about: Check the documentation for usage guides, API references, and examples.

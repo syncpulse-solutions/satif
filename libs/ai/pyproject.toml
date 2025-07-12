@@ -1,0 +1,77 @@
+[project]
+name = "satif-ai"
+version = "0.2.12"
+description = "AI Agents for Satif"
+authors = [
+    {name = "Syncpulse"}
+]
+maintainers = [
+    {name = "Bryan Djafer", email = "bryan.djafer@syncpulse.fr"}
+]
+license = "MIT"
+readme = "README.md"
+
+requires-python = ">=3.10,<3.14"
+
+[tool.poetry.dependencies]
+openai-agents = ">=0.0.9,<0.0.10"
+satif-sdk = ">=0.1.0,<1.0.0"
+sdif-mcp = ">=0.1.0,<1.0.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.extras]
+xlsx = ["xlsx-to-sdif"]
+
+[project.scripts]
+satif-ai = "satif.cli:main"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+satif-core = {path = "../core", develop = true}
+satif-sdk = {path = "../sdk", develop = true}
+sdif-mcp = {path = "../mcp", develop = true}
+sdif-db = {path = "../sdif", develop = true}
+xlsx-to-sdif = {path = "../xlsx-to-sdif", develop = true}
+ipykernel = "^6.29.5"
+
+
+
+[tool.ruff]
+lint.select = [
+    "E",    # pycodestyle
+    "F",    # pyflakes
+    "I",    # isort
+    "D",    # pydocstyle
+    "D401", # First line should be in imperative mood
+    "T201",
+    "UP",
+]
+lint.ignore = [
+    "UP006",
+    "UP007",
+    # We actually do want to import from typing_extensions
+    "UP035",
+    "UP038",
+    "UP045",
+    # Relax the convention by _not_ requiring documentation for every function parameter.
+    "D417",
+    "E501",
+    "D100",
+    "D103",
+    "D102",
+    "D101",
+    "D104",
+    "D106",
+    "D107",
+    "D205",
+    "D212",
+    "D401",
+    "T201",
+]
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D", "UP"]
+[tool.ruff.lint.pydocstyle]
+convention = "google"

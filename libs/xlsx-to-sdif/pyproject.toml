@@ -1,0 +1,98 @@
+[project]
+name = "xlsx-to-sdif"
+version = "0.1.6"
+description = "Convert XLSX files to SDIF files."
+authors = [
+    {name = "Syncpulse"}
+]
+maintainers = [
+    {name = "Bryan Djafer", email = "bryan.djafer@syncpulse.fr"}
+]
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10,<3.14"
+
+[tool.poetry]
+packages = [
+    {include = "xlsx_to_sdif", from = "."}
+]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.14"
+google-auth-oauthlib = ">=1.2.1,<2.0.0"
+google-api-python-client = ">=2.165.0,<3.0.0"
+google-genai = ">=1.7.0,<2.0.0"
+imgkit = ">=1.2.3,<2.0.0"
+beautifulsoup4 = ">=4.13.3,<5.0.0"
+langgraph = ">=0.3.20,<0.4.0"
+langchain-google-genai = ">=2.1.3,<3.0.0"
+python-dotenv = ">=1.1.0,<2.0.0"
+langchain-community = ">=0.3.20,<0.4.0"
+litellm = ">=1.64.1,<2.0.0"
+langchain-openai = ">=0.3.11,<0.4.0"
+langchain-core = ">=0.3.49,<0.4.0"
+aspose-cells-python = "25.4.0,<26.0.0"
+openpyxl = ">=3.1.5,<4.0.0"
+sdif-db = ">=0.2.0,<1.0.0"
+selenium = "^4.32.0"
+pillow = "^11.2.1"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+pandas = "^2.2.3"
+pytest-asyncio = "^0.26.0"
+pytest-cov = "^6.1.1"
+pandas-stubs = "^2.2.0"
+mypy = "^1.15.0"
+ruff = "^0.11.10"
+tabulate = "^0.9.0"
+ipykernel = "^6.29.5"
+plotly = "^6.0.1"
+sdif-db = {path = "../sdif", develop = true}
+langgraph-cli = {extras = ["inmem"], version = "^0.2.10"}
+
+
+[build-system]
+requires = ["setuptools>=73.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[tool.setuptools.package-data]
+"*" = ["py.typed"]
+
+
+[tool.ruff]
+lint.select = [
+    "E",    # pycodestyle
+    "F",    # pyflakes
+    "I",    # isort
+    "D",    # pydocstyle
+    "D401", # First line should be in imperative mood
+    "T201",
+    "UP",
+]
+lint.ignore = [
+    "UP006",
+    "UP007",
+    # We actually do want to import from typing_extensions
+    "UP035",
+    # Relax the convention by _not_ requiring documentation for every function parameter.
+    "D417",
+    "E501",
+    "D100",
+    "D103",
+    "D102",
+    "D101",
+    "D104",
+    "D106",
+    "D107",
+    "D205",
+    "D212",
+    "D401",
+    "T201",
+]
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D", "UP"]
+[tool.ruff.lint.pydocstyle]
+convention = "google"

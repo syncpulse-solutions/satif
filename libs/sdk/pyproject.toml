@@ -1,0 +1,89 @@
+[project]
+name = "satif-sdk"
+version = "0.2.5"
+description = "Data SDK for AI Agents"
+authors = [
+    {name = "Syncpulse"}
+]
+maintainers = [
+    {name = "Bryan Djafer", email = "bryan.djafer@syncpulse.fr"}
+]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.9,<4.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<4.0"
+satif-core = ">=0.2.0,<1.0.0"
+sdif-db = ">=0.2.0,<1.0.0"
+python-dotenv = ">=1.0.0,<2.0.0"
+pandas = ">=2.0.3,<3.0.0"
+nest-asyncio = ">=1.6.0,<2.0.0"
+charset-normalizer = ">=3.4.1,<4.0.0"
+httpx = "^0.28.1"
+clevercsv = "^0.8.3"
+aiofiles = "^24.1.0"
+deepdiff = "^8.4.2"
+openpyxl = "^3.1.5"
+
+[tool.poetry.extras]
+ai = ["satif-ai"]
+
+[project.scripts]
+satif-sdk = "satif.cli:main"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+pandas = "^2.2.3"
+pytest-asyncio = "^0.26.0"
+pytest-cov = "^6.1.1"
+pandas-stubs = "^2.2.0"
+mypy = "^1.15.0"
+ruff = "^0.11.10"
+tabulate = "^0.9.0"
+ipykernel = "^6.29.5"
+plotly = "^6.0.1"
+satif-core = {path = "../core", develop = true}
+sdif-db = {path = "../sdif", develop = true}
+sphinx = ">=4.0"
+sphinx-markdown-builder = ">=0.6.0"
+myst-parser = ">=0.18,<3.0"
+
+[tool.ruff]
+lint.select = [
+    "E",    # pycodestyle
+    "F",    # pyflakes
+    "I",    # isort
+    "D",    # pydocstyle
+    "D401", # First line should be in imperative mood
+    "T201",
+    "UP",
+]
+lint.ignore = [
+    "UP006",
+    "UP007",
+    # We actually do want to import from typing_extensions
+    "UP035",
+    # Relax the convention by _not_ requiring documentation for every function parameter.
+    "D417",
+    "E501",
+    "D100",
+    "D103",
+    "D102",
+    "D101",
+    "D104",
+    "D106",
+    "D107",
+    "D205",
+    "D212",
+    "D401",
+    "T201",
+]
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D", "UP"]
+[tool.ruff.lint.pydocstyle]
+convention = "google"
